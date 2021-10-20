@@ -4,7 +4,7 @@ Repository to accompany manuscript Robinson et al. 2021 "Inherited MUTYH mutatio
 
 This repository contains the source data and code to recreate figures in the manuscript and underage statistical modelling. 
 
-Raw sequencing data can be accessed from: 
+DNA sequencing data are deposited in the European Genome-Phenome Archive (EGA) with accession code: EGAD00001007958 and EGAD00001007997.
 
 ### Mutation Calling ###
 Mutation calling was undertaken using CaVEMan, Pindel, ASCAT, GRIDSS and TraFiC-mem. Further detail is provided in the manuscript. They were run as part of the Sanger pipeline and are all openly available here: https://github.com/cancerit/
