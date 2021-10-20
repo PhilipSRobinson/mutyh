@@ -2,7 +2,7 @@
 
 Repository to accompany manuscript Robinson et al. 2021 "Inherited MUTYH mutations cause elevated somatic mutation rates and distinctive mutational signatures in normal human cells".
 
-This repository contains the source data and code to recreate figures in the manuscript and underage statistical modelling. 
+This repository contains the source data and code to recreate figures in the manuscript and undertake statistical modelling. 
 
 DNA sequencing data are deposited in the European Genome-Phenome Archive (EGA) with accession code: EGAD00001007958 and EGAD00001007997.
 
