@@ -27,5 +27,5 @@ SigFit https://github.com/kgori/sigfit
 SigProfiler https://github.com/AlexandrovLab. 
 
 ### Analysis of nanoseq data ###
-Software for analysis of duplex / NanoSeq data is provided at https://github.com/cancerit/NanoSeq. 
+Software for analysis of raw duplex / NanoSeq data is provided at https://github.com/cancerit/NanoSeq. 
 
