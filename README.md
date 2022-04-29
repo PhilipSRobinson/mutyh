@@ -1,6 +1,6 @@
 # mutyh
 
-Repository to accompany manuscript Robinson et al. 2021 "Inherited MUTYH mutations cause elevated somatic mutation rates and distinctive mutational signatures in normal human cells".
+Repository to accompany manuscript Robinson et al. 2022 Nature Communications "Inherited MUTYH mutations cause elevated somatic mutation rates and distinctive mutational signatures in normal human cells".
 
 This repository contains the source data and code to recreate figures in the manuscript and undertake statistical modelling. 
 
