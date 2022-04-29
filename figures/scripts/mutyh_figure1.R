@@ -82,40 +82,28 @@ abline(h=0, lty=1, col="black", lwd=1)
 text(x = atvec,y = -2500,labels = labels,cex = 0.8)
 dev.off()
 
-# Calculate SBS rate per patient
-dfn$sbstotal_corr_rate=dfn$sbstotal_corr/dfn$age
-dfn$patient= as.character(dfn$patient)
-sbsrates <- data.frame(
-  patient = aggregate(dfn$sbstotal_corr/dfn$age, by = list(dfn$patient), max)[,1],
-  max = aggregate(dfn$sbstotal_corr/dfn$age, by = list(dfn$patient), max)[,2],
-  mean = aggregate(dfn$sbstotal_corr/dfn$age, by = list(dfn$patient), mean)[,2],
-  min = aggregate(dfn$sbstotal_corr/dfn$age, by = list(dfn$patient), min)[,2])
-rownames(sbsrates)=sbsrates$patient
-sbsrates <- sbsrates[unique(dfn$patient),]
 lwd=2
 
-# SBS rate fold change
-sbsratesfold <- sbsrates[,2:4]/43.6 # SBS rate from normal intestinal crypts from Lee-Six et al 2019
-
 ######## FIGURE 1B ######## 
+foldint <- read.delim("fold_changes_model_20211122.txt",header=T)
 par(oma=c(1,1,1,1))
 foldvalues=c(1,2,3,4,5,30,45)
 scale=log(foldvalues,100)
 lines=log(c(2,3,4,5,30,45),100)
-normal_pos=c(0.5,1.5,2.5,3.5,5.0,6.0,7.0,8.5,9.5,11)
+normal_pos=c(0.5,1.5,2.5,3.5,4.5)
 lwd=1
-pdf("SBS_rate_fold_dotwhisker.pdf", h=7,w=6)
-plot(normal_pos,log(sbsratesfold[,"mean"],100), xlab="", ylab="",
-     col=boxcol,lwd=2, frame.plot = F, cex=2, pch=21,bg=boxcol, ylim=c(0,1),xlim=c(0,11.5),yaxt='n', xaxt='n')
+pdf("plots/SBS_rate_fold_dotwhisker_genotype.pdf", h=5.5,w=4)
+plot(normal_pos,log(foldint[3:7,"fold.change"],100), xlab="", ylab="",
+     col=boxcol,lwd=lwd, frame.plot = F, cex=1.5, pch=21,bg=boxcol[c(1,2,5,8,10)], ylim=c(0,1),xlim=c(0,5),yaxt='n', xaxt='n')
 axis(2,at=scale,las=2,lwd=lwd, labels=foldvalues,cex=0.8)
-segments(normal_pos,log(sbsratesfold[,"min"],100),normal_pos,log(sbsratesfold[,"max"],100),col = boxcol, lwd=5,cex=5)
+segments(normal_pos,log(foldint[3:7,"fold.lower"],100),normal_pos,log(foldint[3:7,"fold.upper"],100),col = boxcol[c(1,2,5,8,10)], lwd=3,cex=5)
 abline(h=0,lwd=lwd)
 abline(h=lines,lwd=lwd,lty=5,col="lightgrey")
 par(new=TRUE)
-plot(normal_pos,log(sbsratesfold[,"mean"],100), xlab="", ylab="",
-     col=boxcol,lwd=2, frame.plot = F, cex=2, pch=21,bg=boxcol, ylim=c(0,1),xlim=c(0,11.5),yaxt='n', xaxt='n')
+plot(normal_pos,log(foldint[3:7,"fold.change"],100), xlab="", ylab="",
+     col=boxcol[c(1,2,5,8,10)],lwd=1, frame.plot = F, cex=1.5 , pch=21,bg=boxcol[c(1,2,5,8,10)], ylim=c(0,1),xlim=c(0,5),yaxt='n', xaxt='n')
 axis(2,at=scale,las=2,lwd=lwd, labels=foldvalues,cex=0.8)
-segments(normal_pos,log(sbsratesfold[,"min"],100),normal_pos,log(sbsratesfold[,"max"],100),col = boxcol, lwd=5,cex=5)
+segments(normal_pos,log(foldint[3:7,"fold.lower"],100),normal_pos,log(foldint[3:7,"fold.upper"],100),col = boxcol[c(1,2,5,8,10)], lwd=3,cex=5)
 dev.off()
 
 ## Adenomas - absolute burden and fold change
