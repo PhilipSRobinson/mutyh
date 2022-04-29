@@ -1,0 +1,8 @@
+parameter	fold.change	fold.lower	fold.upper
+(Intercept)	4.4	-10.6	19.3
+age:germline_mutationWT	1	0.8	1.2
+age:germline_mutationY179C +/- G396D +/-	2	1.5	2.5
+age:germline_mutationY179C +/- G396D +/- OGG1 +/+	31.4	29.8	33.1
+age:germline_mutationY179C +/+	3.8	2.6	5.1
+age:germline_mutationY104* +/+	4.2	3.8	4.6
+age:germline_mutationG286E +/+	3.2	2.5	3.8
